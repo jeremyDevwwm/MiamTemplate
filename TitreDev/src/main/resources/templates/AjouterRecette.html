@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter Recette</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Mes Recettes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Profil.html">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Logout">Déconnexion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="#" th:action="@{/AddRecipe}" th:object="@{Recipe}" method="POST">
+                <div class="pt-2">
+                    <label for="Titre" class="form-label">Titre</label>
+                    <input type="email" class="form-control" id="Titre" aria-describedby="emailHelp" th:field="*{titre}">
+                </div>
+                <div class="pt-2">
+                    <label for="ingredients" class="form-label">Ingrédients</label>
+                    <input type="email" class="form-control" id="ingredients" aria-describedby="emailHelp" th:field="*{ingredients}">
+                </div>
+                <div class="pt-2">
+                    <label for="Content" class="form-label">Contenu</label>
+                    <textarea type="email" class="form-control" id="Content" aria-describedby="emailHelp" th:field="*{contenu}">
+                    </textarea>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <input type="submit" value="Ajouter" class="btn btn-primary mt-2">
+                    </div>
+                    <div class="col-2">
+                        <input type="reset" value="Vider les champs" class="btn btn-warning mt-2">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
