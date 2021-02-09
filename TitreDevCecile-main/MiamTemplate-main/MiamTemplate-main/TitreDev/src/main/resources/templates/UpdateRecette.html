@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${recette.titre}"></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/Accueil.html">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Profil.html">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Logout">Déconnexion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="#" th:action="@{/updateRecipe{id}(id=${recette.idRecipe})}" th:object="${recette}" method="post">
+                <div class="row pt-2">
+                    <label for="titre" class="form-label">Titre</label>
+                    <input type="text" id="titre" th:field="${{recette.titre}}" class="form-control-lg w-25">
+                </div>
+
+                <div class="row pt-2">
+                    <label for="ingredients">Ingredients</label>
+                    <textarea type="text" id="ingredients" th:field="${{recette.ingredients}}" cols="30" rows="10" class="form-control-lg"></textarea>
+                </div>
+
+                <div class="row pt-2">
+                    <label for="contenu">Contenu</label>
+                    <textarea name="contenu" id="contenu"  th:field="${{recette.contenu}}" cols="30" rows="10" class="form-control-lg"></textarea>
+                </div>
+
+                <div class="row pt-2 pb-2">
+                    <div class="col-2">
+                        <input type="submit" value="Soumettre" class="btn btn-success">
+                    </div>
+                    <div class="col-2">
+                        <input type="reset" value="Vider les champs" class="btn btn-warning">
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
